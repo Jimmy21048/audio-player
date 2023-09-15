@@ -1,0 +1,99 @@
+body {
+    width:100vw;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+.player {
+    background-color: #ECDDE2;
+    color:#0A0A11;
+    padding:40px;
+    width:95vw;
+    height:90vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.track {
+    display:flex;
+    flex-direction: column;
+    height:80%;
+    align-items: center;
+    margin-bottom:10px;
+}
+.track div p:first-of-type {
+    font-weight: 800;
+    font-size:25px;
+}
+.track div p:last-of-type {
+    font-weight:600;
+
+}
+.track div {
+    text-align: center;
+    font-family:Verdana;
+}
+
+.image {
+    height:80%;
+    width:80%;
+    object-fit:contain;
+}
+.progress-bar {
+    display:flex;
+    align-items: center;
+}
+.progress-bar input {
+    width:98%;
+}
+.controls-container {
+    width:inherit;
+    display: flex;
+    justify-content: center;
+}
+.controls {
+    width:50%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+.control {
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+    height:20%;
+}
+.controls button {
+    width:50px;
+    height:30px;
+    color:#0A0A11;
+    border:none;
+    background: transparent;
+}
+.controls button * {
+    font-size:30px;
+    text-align:center;
+}
+#play-button {
+    border-radius: 50%;
+    border:1px solid black;
+    height:70px;
+    width:70px;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
+#play-button * {
+    font-size: 50px;
+}
+input[type="range"] {
+    --range-progress:0;
+}
+input[type="range"]::before {
+    background:#f50;
+    width:var(--range-progress);
+}
