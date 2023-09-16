@@ -6,7 +6,7 @@ body {
     align-items:center;
     overflow:hidden;
 }
-.player {
+.light-player {
     background-color: #ECDDE2;
     color:#0A0A11;
     padding:40px;
@@ -15,6 +15,29 @@ body {
     display:flex;
     flex-direction: column;
     justify-content: space-between;
+}
+.dark-player {
+    background-color: #1b1b32;
+    color:#f4f5f6;
+    padding:40px;
+    width:95vw;
+    height:90vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.light-mode {
+    width:50px;
+    position:relative;
+    left:90%;
+    top:-20px;
+}
+.dark-player .controls button {
+    width:50px;
+    height:30px;
+    color:#f5f6f7;
+    border:none !important; 
+    background: transparent;
 }
 
 .track {

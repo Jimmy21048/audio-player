@@ -11,8 +11,14 @@ export default function Player() {
     const [duration, setDuration] = useState(0);
     const audioRef = useRef();
     const progressBarRef = useRef();
+    const [light, setLight] = useState(true);
     return (
-        <div className="player">
+        <div className={light ? 'light-player' : 'dark-player' }>
+            <button className='light-mode' onClick={() => setLight(!light)}>
+                {
+                    light ? 'DARK' : 'LIGHT'
+                }
+            </button>
             <Track
             {...{currentTrack, audioRef, setDuration, progressBarRef}} />
             <Controls
