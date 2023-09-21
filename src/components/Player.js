@@ -3,6 +3,7 @@ import Controls from './Controls';
 import {tracks} from '../data/tracks';
 import { useState, useRef } from 'react';
 import './styles/styles.css'
+import TrackList from './trackList';
 
 export default function Player() {
     const [trackIndex, setTrackIndex] = useState(0);
@@ -12,15 +13,22 @@ export default function Player() {
     const audioRef = useRef();
     const progressBarRef = useRef();
     const [light, setLight] = useState(true);
+
     return (
         <div className={light ? 'light-player' : 'dark-player' }>
-            <button className='light-mode' onClick={() => setLight(!light)}>
-                {
-                    light ? 'DARK' : 'LIGHT'
-                }
-            </button>
-            <Track
-            {...{currentTrack, audioRef, setDuration, progressBarRef}} />
+            <div className='change-mode'>
+                <button className='light-mode' onClick={() => setLight(!light)}>
+                    {
+                        light ? 'DARK' : 'LIGHT'
+                    }
+                </button>
+            </div>
+            <div className='track-tracklist'>
+                <Track
+                {...{currentTrack, audioRef, setDuration, progressBarRef}} />
+                <TrackList
+                {...{setCurrentTrack, tracks}} />
+            </div>
             <Controls
             {...{audioRef, setCurrentTrack, trackIndex, setTrackIndex, progressBarRef, timeProgress, setTimeProgress, duration}} />
         </div>

@@ -1,6 +1,7 @@
 * {
     margin:0;
     outline:none;
+    padding:0;
 }
 body {
     width:100vw;
@@ -13,9 +14,9 @@ body {
 .light-player {
     background-color: #ECDDE2;
     color:#0A0A11;
-    padding:40px;
-    width:95vw;
-    height:90vh;
+    padding-top:10px;
+    width:100vw;
+    height:100vh;
     display:flex;
     flex-direction: column;
     justify-content: space-between;
@@ -23,57 +24,91 @@ body {
 .dark-player {
     background-color: #1b1b32;
     color:#f4f5f6;
-    padding:40px;
-    width:95vw;
-    height:90vh;
+    padding-top:10px;
+    width:100vw;
+    height:100vh;
     display:flex;
     flex-direction: column;
     justify-content: space-between;
 }
+.change-mode {
+    display: flex;
+    justify-content: right;
+    height:10%;
+    padding-right:20px;
+}
 .light-mode {
-    width:50px;
-    position:relative;
-    left:90%;
+    width:3rem;
+    height: 4vh;
 }
 .dark-player .controls button {
     width:50px;
     height:30px;
     color:#f5f6f7;
-    border:none !important; 
+    border:none ; 
     background: transparent;
 }
-
+.track-tracklist {
+    display:flex;
+    justify-content:space-between;
+    padding:0 20px;
+    height: 60%;
+    max-width:100%;
+}
 .track {
     display:flex;
     flex-direction: column;
-    height:80%;
+    justify-content: space-between;
+    padding:20px 0;
     align-items: center;
-    margin-bottom:10px;
+    width:40%;
+}
+.track-list {
+    width:60%;
+    overflow-y: scroll;
 }
 .track div p:first-of-type {
     font-weight: 800;
-    font-size:25px;
+    font-size:20px;
 }
 .track div p:last-of-type {
     font-weight:600;
 
 }
+
 .track div {
     text-align: center;
     font-family:Verdana;
 }
+.track-list ul li {
+    list-style-type: none;
+}
+.track-list ul li button {
+    width:100%;
+    height:6vh;
+    text-align: left;
+    padding:5px;
+    background-color: #ECDDE2;
+    border:0.5px solid #a1979b;
+}
+.dark-player .track-list ul li button {
+    background-color: #1b1b32;
+    border:-0.5px solid #0A0A11;
+    color:#f4f5f6;
+}
 
 .image {
-    height:80%;
-    width:80%;
+    height:70%;
+    width:70%;
     object-fit:contain;
 }
 .progress-bar {
     display:flex;
     align-items: center;
+    padding:0 20px;
 }
 .progress-bar input {
-    width:98%;
+    width:95%;
 }
 .controls-container {
     width:inherit;
@@ -108,12 +143,15 @@ body {
 }
 #play-button {
     border-radius: 50%;
-    border:1px solid black;
+    border:-1px solid black;
     height:70px;
     width:70px;
     display:flex;
     justify-content:center;
     align-items: center;
+}
+.dark-player #play-button {
+    border:none;
 }
 #play-button * {
     font-size: 50px;
@@ -127,38 +165,46 @@ input[type="range"]::before {
 }
 
 @media screen and (max-width:1000px) {
+    /* * {
+        border:1px solid;
+    } */
     body {
-        width:100vw;
-        height:100vh;
+        overflow:hidden;
     }
     .light-player {
-        padding-left:5vw;
-        padding-right:5vw;
-        padding-top:5vh;
-        padding-bottom:5vh;
-        width:90vw;
-        height:90vh;
-        font-size:1rem !important;
+        font-size:1rem ;
         overflow:hidden;
+        padding:2px;
     }
     .dark-player {
-        padding-left:5vw;
-        padding-right:5vw;
-        padding-top:5vh;
-        padding-bottom:5vh;
-        width:90vw;
-        height:90vh;
-        font-size:1rem !important;
+        font-size:1rem ;
         overflow:hidden;
+        padding:2px;
     }
-    .light-mode {
-        width:min-content;
-        position:relative;
-        left:80%;
+    .track-tracklist {
+        height:70%;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom:5px;
+    }
+    .track {
+        width:100%;
+        height:30%;
+    }
+    .track-list {
+        width:100%;
+        height:70%;
+        overflow:scroll;
+    }
+    .track-list ul li button {
+        border-top:0px;
+    }
+    .control {
+        height:20%;
     }
     .image {
-        height:80%;
-        width:80%;
+        height:70%;
+        width:70%;
         object-fit:contain;
     }
     .controls-container {
@@ -167,53 +213,8 @@ input[type="range"]::before {
     .controls {
         width:inherit;
     }
+    .progress-bar {
+        padding:0 5px;
+    }
 
-
-}
-@media screen and (max-width:300px) {
-    .track div p:first-of-type {
-        font-size:20px !important;
-    }
-    .track div p:last-of-type {
-        font-size:15px !important;
-    }
-    .controls button {
-        font-size:20px;
-        width:50px;
-        height:50px;
-        border:none !important; 
-        background: transparent;
-    }
-    .controls button * {
-        font-size:15px;
-    }
-}
-@media screen and (min-width:700px) {
-    * {
-        font-size:35px !important;
-    }
-}
-@media screen and (max-height:600px) {
-    * {
-        font-weight: 300 !important;
-        font-size: 20px !important;
-    }
-    .light-mode {
-        width:min-content;
-    }
-    .track {
-        display:flex;
-        flex-direction: column;
-        height:60%;
-        align-items: center;
-        margin-bottom:10px;
-    }
-}
-@media screen and (min-width:1000px) {
-    .light-mode {
-        width:min-content;
-    }
-    .track {
-        height:60%;
-    }
 }
