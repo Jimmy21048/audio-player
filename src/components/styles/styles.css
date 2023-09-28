@@ -2,6 +2,7 @@
     margin:0;
     outline:none;
     padding:0;
+    font-family: 'Montserrat', sans-serif;
 }
 body {
     width:100vw;
@@ -90,6 +91,12 @@ body {
     padding:5px;
     background-color: #ECDDE2;
     border:0.5px solid #a1979b;
+    cursor:pointer;
+}
+.track-list ul li button:focus {
+    background-color: #cf9cad;
+    height:8vh;
+    font-size:20px;
 }
 .dark-player .track-list ul li button {
     background-color: #1b1b32;
